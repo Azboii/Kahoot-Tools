@@ -20,10 +20,10 @@ def is_code_valid(string):
     return request
 
 def exclude(string):
-    global outstr
-    outstr = string.replace(delst[0], relst[0])
+    string = string.replace(delst[0], relst[0])
     for iEx in range(1, len(delst)):
-        outstr = outstr.replace(delst[iEx], relst[iEx])
+        string = string.replace(delst[iEx], relst[iEx])
+    return string
 
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -67,28 +67,28 @@ while Active:
         for i in range(0, len(questions)):
             if questions[i]["type"] == "quiz" or questions[i][
                     "type"] == "multiple_select_quiz":
-                exclude(questions[i]["question"])
+                
 
-                print(Fore.RESET + "#" + str(i + 1) + " " + outstr)
+                print(Fore.RESET + "#" + str(i + 1) + " " + exclude(questions[i]["question"]))
                 for i2 in range(0, len(questions[i]["choices"])):
                     if questions[i]["choices"][i2]["correct"] is True:
-                        exclude(questions[i]["choices"][i2]["answer"])
+                        
 
-                        print(Fore.GREEN + outstr)
+                        print(Fore.GREEN + exclude(questions[i]["choices"][i2]["answer"]))
                     else:
                         if printFalseAns == "y":
-                            exclude(questions[i]["choices"][i2]["answer"])
+                            
 
-                            print(Fore.RED + outstr)
+                            print(Fore.RED + exclude(questions[i]["choices"][i2]["answer"]))
 
             else:
                 if questions[i]["type"] == "content" and printInfoCards == "y":
-                    exclude("#" + str(i+1) + " " + questions[i]["title"])
+                   
 
-                    print(Fore.BLUE + outstr)
-                    exclude(questions[i]["description"])
+                    print(Fore.BLUE +  exclude("#" + str(i+1) + " " + questions[i]["title"]))
+                    
 
-                    print(Style.DIM + outstr + Style.NORMAL)
+                    print(Style.DIM + exclude(questions[i]["description"]) + Style.NORMAL)
             print("")
     if mode == "3":
         clear()
