@@ -1,4 +1,4 @@
-# Going-Kahoots
+# Kahoot-Tools
 A Command-Line tool to make your teacher go Kahoots!
 
 Going Kahoots Includes:
