@@ -135,7 +135,7 @@ while Active:
                 loop = False
         chose = int(chose) - 1
         print(searchResult["entities"][chose]["card"]["uuid"])
-
+        
     if mode == "sus":
         clear()
         print("ඞ")
@@ -165,8 +165,8 @@ while Active:
         Active = False
         exitprogram = True
     while exitprogram is False:
-        sys.stdout.write(Fore.RED + "Type 'EXIT' to exit: ")
-        instr = input("")
+        sys.stdout.write(Fore.RED + Style.NORMAL + "Type 'EXIT' to exit: ")
+        instr = input(Style.RESET_ALL + "")
         if instr == "EXIT":
             exitprogram = True
             clear()
